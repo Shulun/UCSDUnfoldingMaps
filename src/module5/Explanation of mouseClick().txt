@@ -1,0 +1,9 @@
+Here's how our code handled mouse clicks:
+
+When the user clicks the mouse, the mouseClicked code in EarthquakeCityMap is called by Java. This method first checks the lastClicked variable. If it is null, meaning a city is already shown as "clicked", it sets lastClicked to null and unhides all the cities and earthquakes.
+
+Otherwise, it relies on two helper methods: checkEarthquakesForClick and checkCitiesForClick.
+
+checkEarthquakesForClick first checks lastClicked, and aborts if it is not null (just in case). Then it loops through all the earthquakes to see if one has been clicked on. If it finds one, it loops through all of the earthquake markers and sets all but the clicked earthquake to hidden. Then it loops through the city markers and sets all of the city markers outside of the clicked earthquake's threat circle to be hidden. It then returns so that it does not check anymore earthquakes.
+
+checkCitiesForClick first checks lastClicked, and aborts if it is not null (which could mean an earthquake has already been found as clicked). Then it loops through all the cities to see if one has been clicked on. If it finds one, it loops through all of the city markers and sets all but the clicked city to hidden. Then it loops through the earthquake markers and sets all of the earthquake markers for which the city is outside of the threat circle to be hidden. It then returns so that it does not check anymore cities.
